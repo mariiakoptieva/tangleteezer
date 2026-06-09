@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mariia Koptieva — Portfolio | Tangle Teezer</title>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#ffffff;
+  --dark:#f7f7f7;
+  --card:#efefef;
+  --red:#E8007D;
+  --red2:#C4006A;
+  --white:#111111;
+  --muted:#666666;
+  --border:#dddddd;
+  --gold:#b76e79;
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden;cursor:none}
+
+/* Custom cursor */
+.cursor{position:fixed;width:12px;height:12px;background:var(--red);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform 0.1s,width 0.2s,height 0.2s}
+.cursor-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(232,0,125,0.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform 0.15s ease-out}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(255,255,255,0.97),transparent)}
+.nav-logo{font-family:'Raleway',sans-serif;font-size:18px;letter-spacing:6px;color:var(--white);text-decoration:none;font-weight:600;text-transform:uppercase}
+.nav-logo span{color:var(--red)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{background:var(--red);color:var(--white);border:none;padding:10px 24px;font-size:11px;letter-spacing:2px;text-transform:uppercase;cursor:none;font-family:'DM Sans',sans-serif;font-weight:500;transition:background 0.2s}
+.nav-cta:hover{background:var(--red2)}
+
+/* Hero */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:120px 48px 80px;position:relative;z-index:2}
+.hero-tag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.hero-tag::before{content:'';width:32px;height:1px;background:var(--red)}
+.hero-name{font-family:'Raleway',sans-serif;font-size:clamp(72px,8vw,120px);line-height:0.9;margin-bottom:24px;letter-spacing:8px;font-weight:300;text-transform:uppercase}
+.hero-name .line2{color:var(--red);display:block}
+.hero-desc{font-size:15px;color:var(--muted);line-height:1.7;max-width:400px;margin-bottom:40px;font-weight:300}
+.hero-desc strong{color:var(--white);font-weight:500}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{background:var(--red);color:var(--white);padding:14px 32px;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;font-weight:500;transition:transform 0.2s,background 0.2s;display:inline-block}
+.btn-primary:hover{background:var(--red2);transform:translateY(-2px)}
+.btn-secondary{border:1px solid var(--border);color:var(--white);padding:14px 32px;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:border-color 0.2s;display:inline-block}
+.btn-secondary:hover{border-color:var(--white)}
+.hero-right{position:relative;overflow:hidden}
+.hero-img{width:100%;height:100%;object-fit:cover;object-position:top;filter:brightness(0.95)}
+.hero-img-overlay{position:absolute;inset:0;background:linear-gradient(to right,var(--black) 5%,rgba(255,255,255,0) 55%)}
+.hero-stats{position:absolute;bottom:48px;left:48px;display:flex;gap:48px;z-index:3}
+.hero-stat-num{font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--white);line-height:1}
+.hero-stat-num span{color:var(--red)}
+.hero-stat-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.tiktok-badge{position:absolute;top:48px;right:48px;background:var(--red);padding:12px 20px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;z-index:3;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.7}}
+.scroll-hint{position:absolute;bottom:40px;right:48px;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--muted);font-size:10px;letter-spacing:2px;text-transform:uppercase}
+.scroll-line{width:1px;height:60px;background:linear-gradient(to bottom,var(--red),transparent);animation:scrollAnim 1.5s ease-in-out infinite}
+@keyframes scrollAnim{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* Section base */
+section{padding:100px 48px}
+.section-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:48px;display:flex;align-items:center;gap:16px}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.section-title{font-family:'Raleway',sans-serif;font-size:clamp(48px,5vw,72px);letter-spacing:6px;line-height:1;margin-bottom:16px;font-weight:300;text-transform:uppercase}
+
+/* About */
+.about{background:var(--dark)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.about-text p{font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:20px;font-weight:300}
+.about-text p strong{color:var(--white);font-weight:500}
+.about-text p em{font-family:'Playfair Display',serif;color:var(--red);font-style:italic}
+.video-placeholder{background:var(--card);border:1px solid var(--border);aspect-ratio:9/16;max-width:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;position:relative;overflow:hidden}
+.video-placeholder::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(254,44,85,0.05),transparent)}
+.play-icon{width:60px;height:60px;border:2px solid var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.play-icon::after{content:'';width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:20px solid var(--red);margin-left:4px}
+.video-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.video-sub{font-size:10px;color:var(--border);letter-spacing:1px}
+.about-right{display:flex;flex-direction:column;gap:32px}
+.about-photo{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top}
+.edu-block{border-left:2px solid var(--red);padding-left:20px}
+.edu-school{font-size:14px;font-weight:500;margin-bottom:4px}
+.edu-degree{font-size:13px;color:var(--muted)}
+.edu-grade{font-size:12px;color:var(--red);margin-top:4px}
+.edu-modules{font-size:11px;color:var(--muted);margin-top:6px;line-height:1.6}
+
+/* Experience sections */
+.exp-hero-img{width:100%;aspect-ratio:16/9;object-fit:cover;margin-bottom:48px;filter:brightness(0.8)}
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.exp-content h2{font-family:'Bebas Neue',sans-serif;font-size:48px;letter-spacing:2px;line-height:1;margin-bottom:8px}
+.exp-content .role{font-size:13px;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
+.exp-content .period{font-size:12px;color:var(--muted);margin-bottom:24px}
+.exp-content p{font-size:14px;line-height:1.8;color:var(--muted);margin-bottom:16px;font-weight:300}
+.exp-content p strong{color:var(--white);font-weight:500}
+.bullet-list{list-style:none;margin:16px 0 24px}
+.bullet-list li{font-size:13px;color:var(--muted);padding:8px 0;border-bottom:1px solid var(--border);padding-left:16px;position:relative;line-height:1.6}
+.bullet-list li::before{content:'→';position:absolute;left:0;color:var(--red);font-size:11px}
+.stat-row{display:flex;gap:24px;flex-wrap:wrap;margin:24px 0}
+.stat-box{background:var(--card);border:1px solid var(--border);padding:16px 20px;min-width:120px}
+.stat-box .num{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--red);line-height:1}
+.stat-box .lbl{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.phone-frame{background:var(--card);border:2px solid var(--border);border-radius:28px;padding:12px;width:260px;flex-shrink:0}
+.phone-notch{width:60px;height:6px;background:var(--border);border-radius:3px;margin:0 auto 12px}
+.phone-screen{background:#111;border-radius:18px;overflow:hidden;aspect-ratio:9/16;position:relative;display:flex;align-items:center;justify-content:center}
+.phone-screen img{width:100%;height:100%;object-fit:cover;object-position:top}
+.phone-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.3)}
+.phone-play-btn{width:44px;height:44px;border:2px solid white;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.phone-play-btn::after{content:'';width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:14px solid white;margin-left:3px}
+.phones-row{display:flex;gap:16px;align-items:flex-end;flex-wrap:wrap}
+.phone-frame.offset{margin-top:32px}
+.manager-quote{background:var(--card);border-left:3px solid var(--red);padding:20px 24px;margin-top:24px}
+.manager-quote p{font-size:13px;color:var(--white);font-style:italic;line-height:1.7;margin-bottom:8px}
+.manager-quote .attribution{font-size:11px;color:var(--red);letter-spacing:1px;text-transform:uppercase}
+.screenshots-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+.screenshots-grid img{width:100%;aspect-ratio:9/16;object-fit:cover}
+.tiktok-profile-img{width:100%;border:1px solid var(--border)}
+
+/* Conferences */
+.conf-section{background:var(--black)}
+.conf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:48px}
+.conf-photo{position:relative;overflow:hidden;aspect-ratio:3/4}
+.conf-photo img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s;filter:brightness(0.75)}
+.conf-photo:hover img{transform:scale(1.05);filter:brightness(0.9)}
+.conf-photo-label{position:absolute;bottom:0;left:0;right:0;padding:16px;background:linear-gradient(to top,rgba(0,0,0,0.75),transparent);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--white)}
+.conf-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:48px}
+.conf-item{background:var(--card);border:1px solid var(--border);padding:20px;border-left:3px solid var(--red)}
+.conf-item h4{font-size:13px;font-weight:500;margin-bottom:4px}
+.conf-item p{font-size:11px;color:var(--muted);line-height:1.5}
+.badges-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.badge{background:rgba(232,0,125,0.08);border:1px solid rgba(232,0,125,0.25);color:var(--red);font-size:10px;padding:4px 12px;letter-spacing:1px;text-transform:uppercase}
+
+/* Brand activations */
+.brands-section{background:var(--dark)}
+.brands-masonry{columns:3;gap:8px;margin-bottom:48px}
+.brands-masonry img{width:100%;display:block;margin-bottom:8px;break-inside:avoid;transition:filter 0.3s}
+.brands-masonry img:hover{filter:brightness(1.1)}
+.brand-chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px}
+.brand-chip{background:var(--card);border:1px solid var(--border);padding:8px 16px;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.brand-chip.highlight{border-color:var(--red);color:var(--red)}
+
+/* QMUL */
+.qmul-section{background:var(--black)}
+.qmul-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.analytics-card{background:var(--card);border:1px solid var(--border);padding:24px;margin-bottom:16px}
+.analytics-card h4{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.analytics-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.analytics-metric .val{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--white);line-height:1}
+.analytics-metric .change{font-size:11px;color:#16a34a;margin-top:2px}
+.analytics-metric .label{font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:2px}
+.ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.ig-grid img{width:100%;aspect-ratio:1;object-fit:cover}
+.ig-grid .ig-item{position:relative}
+.ig-grid .ig-views{position:absolute;bottom:4px;left:4px;font-size:10px;background:rgba(0,0,0,0.7);padding:2px 6px;color:var(--white)}
+.treasurer-note{background:rgba(232,0,125,0.06);border:1px solid rgba(232,0,125,0.18);padding:16px 20px;margin-top:16px}
+.treasurer-note p{font-size:12px;color:var(--gold);line-height:1.6}
+.treasurer-note strong{color:var(--gold)}
+
+/* Skills */
+.skills-section{background:var(--dark)}
+.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-bottom:48px}
+.skill-category h4{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+.skill-tags{display:flex;flex-wrap:wrap;gap:8px}
+.skill-tag{background:var(--card);border:1px solid var(--border);padding:8px 14px;font-size:12px;color:var(--white);transition:border-color 0.2s}
+.skill-tag:hover{border-color:var(--red)}
+.skill-tag.primary{border-color:rgba(254,44,85,0.4);color:var(--red)}
+.certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.cert-card{background:var(--card);border:1px solid var(--border);padding:20px;transition:border-color 0.2s}
+.cert-card:hover{border-color:var(--red)}
+.cert-issuer{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.cert-name{font-size:13px;font-weight:500;margin-bottom:4px;line-height:1.4}
+.cert-date{font-size:11px;color:var(--muted)}
+.cert-img{width:100%;margin-top:12px;border:1px solid var(--border);opacity:0.8}
+.langs-row{display:flex;gap:16px;margin-top:32px;flex-wrap:wrap}
+.lang-item{background:var(--card);border:1px solid var(--border);padding:12px 20px;text-align:center}
+.lang-name{font-size:13px;font-weight:500;margin-bottom:4px}
+.lang-level{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.lang-item.native .lang-level{color:var(--red)}
+
+/* Fun facts */
+.fun-section{background:var(--black)}
+.fun-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:48px}
+.fun-card{background:var(--card);border:1px solid var(--border);overflow:hidden;transition:transform 0.2s,border-color 0.2s}
+.fun-card:hover{transform:translateY(-4px);border-color:var(--red)}
+.fun-card img{width:100%;aspect-ratio:1;object-fit:cover;filter:grayscale(30%);transition:filter 0.3s}
+.fun-card:hover img{filter:grayscale(0%)}
+.fun-card-body{padding:16px}
+.fun-card-title{font-size:12px;font-weight:500;margin-bottom:4px}
+.fun-card-desc{font-size:11px;color:var(--muted);line-height:1.5}
+.jobs-timeline{display:flex;gap:0;flex-wrap:wrap;margin-top:32px}
+.job-item{background:var(--card);border:1px solid var(--border);border-right:none;padding:16px 20px;flex:1;min-width:140px;position:relative;transition:background 0.2s}
+.job-item:last-child{border-right:1px solid var(--border)}
+.job-item:hover{background:#222}
+.job-emoji{font-size:20px;margin-bottom:8px;display:block}
+.job-title{font-size:12px;font-weight:500;margin-bottom:4px}
+.job-note{font-size:10px;color:var(--muted);line-height:1.4}
+
+/* Interests */
+.interests-section{background:var(--dark)}
+.interests-photos{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:48px}
+.interest-photo{position:relative;overflow:hidden;aspect-ratio:3/4}
+.interest-photo img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s}
+.interest-photo:hover img{transform:scale(1.05)}
+.interest-photo-label{position:absolute;bottom:0;left:0;right:0;padding:12px;background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--white)}
+
+/* IBM */
+.ibm-section{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:60px 48px}
+.ibm-inner{max-width:800px}
+.ibm-inner h3{font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:2px;margin-bottom:8px}
+.ibm-inner p{font-size:14px;color:var(--muted);line-height:1.8}
+
+/* CTA */
+.cta-section{background:var(--black);padding:120px 48px;text-align:center;position:relative;overflow:hidden}
+.cta-section::before{content:'HIRE ME';font-family:'Bebas Neue',sans-serif;font-size:clamp(100px,15vw,200px);color:rgba(232,0,125,0.05);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;letter-spacing:10px;pointer-events:none}
+.cta-section h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6vw,80px);letter-spacing:3px;margin-bottom:16px;line-height:1}
+.cta-section h2 span{color:var(--red)}
+.cta-section p{font-size:15px;color:var(--muted);max-width:500px;margin:0 auto 40px;line-height:1.7}
+.cta-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.cta-link{color:var(--muted);font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:color 0.2s;border-bottom:1px solid var(--border);padding-bottom:2px}
+.cta-link:hover{color:var(--white);border-bottom-color:var(--white)}
+
+/* Footer */
+footer{background:var(--dark);padding:32px 48px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border)}
+footer p{font-size:11px;color:var(--muted);letter-spacing:1px}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:3px}
+.footer-logo span{color:var(--red)}
+
+/* Divider */
+.ticker{background:var(--red);padding:12px 0;overflow:hidden;white-space:nowrap}
+.ticker-inner{display:inline-flex;animation:ticker 20s linear infinite}
+.ticker-item{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:4px;padding:0 32px;color:var(--white)}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* Animations */
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+  nav{padding:16px 20px}
+  .nav-links{display:none}
+  section{padding:60px 20px}
+  .hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .about-grid,.exp-grid,.qmul-grid,.skills-grid{grid-template-columns:1fr}
+  .conf-grid,.fun-grid,.interests-photos{grid-template-columns:repeat(2,1fr)}
+  .certs-grid{grid-template-columns:1fr}
+  .hero-stats{left:20px;bottom:24px;gap:24px}
+  .hero-name{font-size:64px}
+}
+
+/* Bubbles */
+#bubble-canvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.hero-left{position:relative;z-index:2}
+.hero-right{position:relative;z-index:2}
+
+/* Name letter animation */
+.hero-name .letter{display:inline-block;opacity:0;transform:translateY(30px);animation:letterIn 0.5s forwards}
+@keyframes letterIn{to{opacity:1;transform:translateY(0)}}
+
+/* Skill tag bounce */
+.skill-tag{transition:transform 0.2s,border-color 0.2s,background 0.2s}
+.skill-tag:hover{transform:translateY(-3px) scale(1.05)}
+.skill-tag.bounce-in{animation:bounceIn 0.4s forwards}
+@keyframes bounceIn{0%{opacity:0;transform:scale(0.7)}60%{transform:scale(1.1)}100%{opacity:1;transform:scale(1)}}
+
+/* Ticker pulse */
+.ticker{animation:none}
+
+.section-bubble-canvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.about .about-grid,.brands-section .section-label,.brands-section h2,.brands-section>div,.brands-section>p,.brands-section>ul,.conf-section .section-label,.conf-section h2,.conf-section>div,.qmul-section .section-label,.qmul-section .qmul-grid,.skills-section .section-label,.skills-section h2,.skills-section>*,.fun-section .section-label,.fun-section h2,.fun-section>*,.ibm-section .ibm-inner{position:relative;z-index:1}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">MK<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#rwc">Royal Wharf</a></li>
+    <li><a href="#qmul">QMUL Society</a></li>
+    <li><a href="#conferences">Conferences</a></li>
+    <li><a href="#brands">Brands</a></li>
+    <li><a href="#skills">Skills</a></li>
+  </ul>
+  <a href="mailto:koptieva1902@gmail.com" class="nav-cta">Hire me</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero" style="position:relative;overflow:hidden">
+<canvas id="bubble-canvas"></canvas>
+  <div class="hero-left">
+    <div class="hero-tag"><span style="white-space:nowrap">PR & Influencer Marketing</span> · <span style="white-space:nowrap">Content Creation</span> · <span style="white-space:nowrap">Beauty & Hair</span></div>
+    <h1 class="hero-name">
+      Mariia<br>
+      <span class="line2">Koptieva</span>
+    </h1>
+    <p class="hero-desc">
+      Final-year <strong>BSc Business Management student at QMUL</strong>, graduating summer 2026.
+      I've spent three years building real experience across PR & influencer marketing, brand activations, content creation, competitor analysis, and event support — working with beauty and lifestyle brands, coordinating influencer and creator partnerships, and producing campaign reports. I am obsessed with beauty, hair, and the creators that drive it. Available now, graduating summer 2026. Full right to work in the UK — no sponsorship required now or in the future. <em>Eager to learn, quick to deliver, impossible to bore.</em>
+    </p>
+    <div class="hero-btns">
+      <a href="#about" class="btn-primary" style="background:#b76e79;color:#f5f5f5">About Me</a>
+      <a href="#rwc" class="btn-primary">See my work</a>
+      <a href="mailto:koptieva1902@gmail.com" class="btn-secondary">Get in touch</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">3<span>+</span></div>
+        <div class="hero-stat-label">Years Part-Time Experience</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">30<span>+</span></div>
+        <div class="hero-stat-label">Brands Worked With</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">1<span>st</span> <span style="color:var(--red);font-size:0.6em">Class</span></div>
+        <div class="hero-stat-label">Expected Degree</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="IMG_8399.jpeg" alt="Mariia Koptieva" class="hero-img">
+    <div class="hero-img-overlay"></div>
+    
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">Content Strategy</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">Digital Marketing</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">Brand Partnerships</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">Campaign Reporting</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">SEO & Analytics</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">Experiential Marketing</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">Content Strategy</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">Digital Marketing</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">Brand Partnerships</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">Campaign Reporting</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">SEO & Analytics</span>
+    <span class="ticker-item">·</span>
+    <span class="ticker-item">Experiential Marketing</span>
+    <span class="ticker-item">·</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about fade-up" id="about" style="position:relative;overflow:hidden">
+<canvas class="section-bubble-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0"></canvas>
+  <div class="section-label">About me</div>
+  <div class="about-grid">
+    <div class="about-text">
+      <h2 class="section-title">Hi, I'm Mariia.</h2>
+      <p>I'm a final-year <strong>BSc Business Management student at Queen Mary University of London</strong>, based in London. I came here to study, stayed for the opportunity — and haven't stopped moving since.</p>
+      <p>I genuinely love what I do. I've spent the past three years throwing myself into <strong>every experience I could get</strong> — from building content for a clinic whose channels have hit 100M+ views, to assisting in the delivery of Economist Impact conferences as an Assistant Event Manager, to repping Rare Beauty and Kayali at pop-up activations. I learn fast and I always want more.</p>
+      <p>I want to work at <em>Tangle Teezer</em> because I genuinely love beauty, hair, and the creator world that drives it. I have spent time on the ground at brand activations working directly with influencers and content creators, coordinating send-outs, and tracking what resonates with real customers. I keep a close eye on trends, emerging talent, competitor launches, and what's happening across retail — and I bring both the creative instinct and the get-things-done energy to make it happen. I'm available now, graduating summer 2026, and ready to jump in.</p>
+      <p><strong>When I'm not working:</strong> you'll find me on the padel court, at a beauty counter, booking the next flight, or convincing someone to let me pet their dog.</p>
+
+      <div style="margin-top:32px">
+        <div class="section-label" style="margin-bottom:20px">Education</div>
+        <div class="edu-block" style="margin-bottom:20px">
+          <div class="edu-school">Queen Mary University of London</div>
+          <div class="edu-degree">BSc Business Management · Expected 1st Class</div>
+          <div class="edu-grade">2023 – 2026</div>
+          <div class="edu-modules">Strategic Marketing (79%) · Persuasive Strategies in Marketing (85%) · Business Data (74%)<br>QMUL Prize for proactive seminar engagement</div>
+        </div>
+        <div style="margin-top:16px">
+          <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px">Grade feedback · Strategic Marketing</div>
+          <img src="7E71ED15-79B2-47B7-BCC1-3A1BD24E30AF.jpeg" alt="Professor feedback" style="width:100%;max-width:580px;border:1px solid var(--border);opacity:0.9">
+        </div>
+      </div>
+    </div>
+    <div class="about-right">
+      <div style="display:flex;gap:24px;align-items:flex-start">
+        <div style="width:280px;height:500px;border-radius:28px;overflow:hidden;flex-shrink:0;background:#000">
+          <iframe width="280" height="500" src="https://www.youtube.com/embed/fGwixxzTfEk?playsinline=1&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display:block;width:100%;height:100%"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROYAL WHARF CLINIC -->
+<section style="background:var(--black);padding:100px 48px" class="fade-up" id="rwc">
+  <div class="section-label">Experience · Apr–May 2026</div>
+  <div class="exp-grid">
+    <div class="exp-content">
+      <div class="role">Marketing & Content Creation Intern</div>
+      <h2 class="section-title">Royal Wharf<br>Clinic</h2>
+      <div class="period">London · Apr 2026 – May 2026</div>
+      <p>Joined <strong>London's premier hair loss clinic</strong> as a marketing intern. Being in an environment that had already achieved 80k+ TikTok followers and 100M+ organic views gave me an incredible front-row seat to see how high-performance content strategy actually works — and I contributed wherever I could.</p>
+      <ul class="bullet-list">
+        <li>Filmed, edited & strategised TikTok and Instagram content for <strong>@dr.shaan.mbbs</strong> (256K Instagram followers) and <strong>@londonsuperclinic</strong> (80.6K TikTok followers)</li>
+        <li>Built content around <strong>platform-native hooks, CTAs & conversion strategy</strong> — every piece of content tied directly to revenue and monetisation</li>
+        <li>Conducted <strong>full cross-platform competitor analysis</strong> to identify market gaps the clinic could own — including instore and online retailer presence, POS, and brand page audits</li>
+        <li>Co-authored an <strong>SEO-optimised blog</strong> on Afro-hair transplants (Grade 6 readability, clinically backed)</li>
+        <li>Designed <strong>Instagram carousels</strong> using the PIE framework — Dr. Shaan's story, patient testimonials, and CTAs with beige/navy Playfair/Poppins branding</li>
+      </ul>
+      <div class="stat-row">
+        <div class="stat-box"><div class="num">80.6K</div><div class="lbl">Clinic TikTok Followers</div></div>
+        <div class="stat-box"><div class="num">256K</div><div class="lbl">Dr. Shaan IG Followers</div></div>
+        <div class="stat-box"><div class="num">100M+</div><div class="lbl">Clinic Organic Views</div></div>
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin-top:-8px;font-style:italic">These are the clinic's overall results — a testament to the team's strategy and the environment I was lucky enough to learn in.</p>
+      <div class="manager-quote">
+        <p>"Proud of everything you've achieved during your time with us, Mariia. Your work ethic, creativity and willingness to learn have been outstanding from day one."</p>
+        <div class="attribution">Syed Izhaan Habeeb · Head of Marketing, Royal Wharf Clinic</div>
+        <img src="Image 06-05-2026 at 23.04.jpeg" alt="LinkedIn feedback from manager" style="width:100%;margin-top:12px;border:1px solid var(--border);opacity:0.9">
+      </div>
+      <div style="margin-top:24px">
+        <div class="section-label" style="font-size:9px;margin-bottom:12px">Reel I created</div>
+        <div style="display:flex;gap:20px;align-items:flex-start">
+          <div style="width:280px;height:500px;border-radius:28px;overflow:hidden;flex-shrink:0;background:#000">
+            <iframe width="280" height="500" src="https://www.youtube.com/embed/QhC_bGItbnU?playsinline=1&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display:block;width:100%;height:100%"></iframe>
+          </div>
+          <p style="font-size:13px;color:var(--muted);line-height:1.8;font-style:italic;padding-top:8px">A reel I filmed and edited for the clinic — <strong style="color:var(--white)">approved by the Head of Marketing</strong> and ready to be posted. From scripting the hook to the final cut, this was my concept and my execution.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px">
+        <img src="IMG_8358.jpeg" alt="Royal Wharf Clinic" style="width:100%;aspect-ratio:3/4;object-fit:cover">
+        <img src="IMG_8353.jpeg" alt="Working at Royal Wharf" style="width:100%;aspect-ratio:3/4;object-fit:cover">
+      </div>
+      <img src="IMG_8352.jpeg" alt="Royal Wharf team" style="width:100%;margin-bottom:16px">
+      <div style="margin-bottom:16px">
+        <div class="section-label" style="font-size:9px;margin-bottom:12px">TikTok & Instagram Content</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <img src="IMG_8404.jpeg" alt="TikTok profile" class="tiktok-profile-img">
+          <img src="IMG_8405.jpeg" alt="Instagram profile" class="tiktok-profile-img">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER 2 -->
+<div class="ticker" style="background:#1a1a1a">
+  <div class="ticker-inner">
+    <span class="ticker-item" style="color:var(--red)">Royal Wharf Clinic</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+    <span class="ticker-item" style="color:var(--red)">Economist Impact</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+    <span class="ticker-item" style="color:var(--red)">ADCon</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+    <span class="ticker-item" style="color:var(--red)">Optimove Connect</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+    <span class="ticker-item" style="color:var(--red)">Rare Beauty × Sephora</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+    <span class="ticker-item" style="color:var(--red)">Kayali</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+    <span class="ticker-item" style="color:var(--red)">BYOMA</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+    <span class="ticker-item" style="color:var(--red)">Laneige</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+    <span class="ticker-item" style="color:var(--red)">Royal Wharf Clinic</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+    <span class="ticker-item" style="color:var(--red)">Economist Impact</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+    <span class="ticker-item" style="color:var(--red)">ADCon</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+    <span class="ticker-item" style="color:var(--red)">Optimove Connect</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+    <span class="ticker-item" style="color:var(--red)">Rare Beauty × Sephora</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+    <span class="ticker-item" style="color:var(--red)">Kayali</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+    <span class="ticker-item" style="color:var(--red)">BYOMA</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+    <span class="ticker-item" style="color:var(--red)">Laneige</span>
+    <span class="ticker-item" style="color:var(--muted)">·</span>
+  </div>
+</div>
+
+<!-- QMUL UKRAINIAN SOCIETY -->
+<section class="qmul-section fade-up" id="qmul" style="position:relative;overflow:hidden">
+<canvas class="section-bubble-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0"></canvas>
+  <div class="section-label">Experience · Jan 2025 – Present</div>
+  <div class="qmul-grid">
+    <div>
+      <div class="role">Social Media & Marketing Manager</div>
+      <h2 class="section-title">QMUL<br>Ukrainian<br>Society</h2>
+      <div class="period">London · Jan 2025 – Present</div>
+      <p>Took over a social media presence that barely existed and built it into a <strong>1,000-follower community platform</strong>. I was the sole creator — strategy, filming, editing, posting, analysing. All of it.</p>
+      <ul class="bullet-list">
+        <li>Sole content creator across posts, reels & stories — independently ideating, producing and publishing everything</li>
+        <li>Grew followers <strong>500 → 1,004</strong> (+100%) and paid membership <strong>18 → 56</strong> (+211%) — tracked and reported on every step</li>
+        <li>Hit <strong>63,027 views in a single month</strong> with 6,709 accounts reached (+191.9%) — didn't just post, monitored all platform analytics to inform the next move</li>
+        <li>Built and maintained a <strong>full performance reporting system</strong>: monthly metrics, growth trends, engagement breakdowns — presented to the society committee</li>
+        <li>Created content for high-profile events: Careers Forum (Goldman Sachs, Estée Lauder, Mayer Brown), Diplomatic Talks, Cultural exhibitions</li>
+      </ul>
+      <div class="stat-row">
+        <div class="stat-box"><div class="num">63K+</div><div class="lbl">Monthly Views</div></div>
+        <div class="stat-box"><div class="num">+192%</div><div class="lbl">Accounts Reached</div></div>
+        <div class="stat-box"><div class="num">+211%</div><div class="lbl">Membership Growth</div></div>
+      </div>
+
+      <!-- Reel placeholder -->
+      <div style="margin-top:24px">
+        <div class="section-label" style="font-size:9px;margin-bottom:12px">Reel I created for the society</div>
+        <div class="phones-row">
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <img src="IMG_8400.jpeg" alt="QMUL Instagram grid">
+            </div>
+          </div>
+          <div class="phone-frame offset">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <img src="IMG_8401.jpeg" alt="QMUL Instagram grid 2">
+            </div>
+          </div>
+          <div style="width:260px;border-radius:28px;overflow:hidden;flex-shrink:0;background:#000;margin-top:64px">
+            <iframe width="260" height="460" src="https://www.youtube.com/embed/dXS2LRFSuUg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:block"></iframe>
+          </div>
+          <div style="display:flex;align-items:center;padding-top:64px;max-width:180px">
+            <p style="font-size:13px;color:var(--muted);line-height:1.7;font-style:italic">Reels I filmed and edited for the society — from concept to final cut.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:var(--card);border:1px solid var(--gold);border-left:4px solid var(--gold);padding:24px;margin-top:24px">
+        <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px">Also: Treasurer · QMUL Ukrainian Society</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">
+          <div style="background:rgba(201,168,76,0.08);padding:12px">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--gold)">£2,500+</div>
+            <div style="font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase">Raised</div>
+          </div>
+          <div style="background:rgba(201,168,76,0.08);padding:12px">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--gold)">80+</div>
+            <div style="font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase">Careers Forum Attendees</div>
+          </div>
+        </div>
+        <p style="font-size:13px;color:var(--white);line-height:1.7">Managed all society <strong style="color:var(--gold)">finances, budgeting, and Excel reporting</strong>. Raised £2,500+ including fundraisers supporting the Ukrainian army. Attracted investment from a university development fund. Oversaw financial planning for a <strong style="color:var(--gold)">Careers Forum</strong> (Goldman Sachs, Estée Lauder, Mayer Brown — 80+ attendees) and a <strong style="color:var(--gold)">Diplomatic Talk</strong> featuring ambassadors from Latvia and the Czech Republic — coordinating speakers, budgets, logistics and teams end-to-end.</p>
+      </div>
+    </div>
+    <div>
+      <div class="analytics-card">
+        <h4>Instagram Analytics · 9 Feb – 9 Mar 2025</h4>
+        <div class="analytics-grid">
+          <div class="analytics-metric"><div class="val">63,027</div><div class="label">Total Views</div></div>
+          <div class="analytics-metric"><div class="val">6,709</div><div class="change">+191.9%</div><div class="label">Accounts Reached</div></div>
+          <div class="analytics-metric"><div class="val">1,580</div><div class="change">+159.0%</div><div class="label">Profile Visits</div></div>
+          <div class="analytics-metric"><div class="val">105</div><div class="change">+377.3%</div><div class="label">Link Taps</div></div>
+          <div class="analytics-metric"><div class="val">51%</div><div class="label">Non-follower Views</div></div>
+          <div class="analytics-metric"><div class="val">1,685</div><div class="change">+166.6%</div><div class="label">Profile Activity</div></div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:16px">
+        <img src="IMG_8329.jpeg" alt="Analytics views" style="width:100%;border:1px solid var(--border)">
+        <img src="IMG_8330.jpeg" alt="Analytics content type" style="width:100%;border:1px solid var(--border)">
+        <img src="IMG_8331.jpeg" alt="Analytics profile activity" style="width:100%;border:1px solid var(--border)">
+      </div>
+
+      <div style="margin-top:8px">
+        <img src="IMG_8370.jpeg" alt="QMUL society Instagram grid" style="width:100%;border:1px solid var(--border)">
+      </div>
+      <div style="margin-top:8px">
+        <img src="IMG_8378.jpeg" alt="In conversation with Peter Chernyshov, Former CEO of Kyivstar" style="width:100%;border:1px solid var(--border)">
+        <div style="font-size:10px;color:var(--muted);padding:6px 0;letter-spacing:1px;text-transform:uppercase">In Conversation · Peter Chernyshov, Former CEO of Kyivstar</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND ACTIVATIONS -->
+<section class="brands-section fade-up" id="brands" style="position:relative;overflow:hidden">
+<canvas class="section-bubble-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0"></canvas>
+  <div class="section-label">Experience · Sep 2024 – Present</div>
+  <h2 class="section-title">Brand<br>Activations</h2>
+  <p style="font-size:15px;color:var(--muted);max-width:700px;margin-bottom:32px;line-height:1.7">Working directly with <strong style="color:var(--white)">beauty and lifestyle brands</strong> at instore events, product launches, and brand activations including Rare Beauty x Sephora, Kayali, BYOMA, and Laneige. I understand how retailer relationships are built on the ground, how GWP and sample programmes are executed, and how every activation connects back to commercial targets. <strong style="color:var(--white)">Every event ends with a report. Every number gets tracked.</strong></p>
+
+  <div class="brand-chips">
+    <span class="brand-chip highlight">Rare Beauty × Sephora</span>
+    <span class="brand-chip highlight">Kayali by Huda Beauty</span>
+    <span class="brand-chip highlight">BYOMA</span>
+    <span class="brand-chip highlight">Laneige × Boots</span>
+    <span class="brand-chip highlight">Sunnamusk London</span>
+    <span class="brand-chip">Amazon</span>
+    <span class="brand-chip">Vodafone</span>
+    <span class="brand-chip">Spotify</span>
+    <span class="brand-chip">Deliveroo</span>
+    <span class="brand-chip">NHS</span>
+    <span class="brand-chip" style="font-style:italic;color:var(--muted)">...and many more</span>
+  </div>
+
+  <div class="brands-masonry">
+    <img src="IMG_8373.jpeg" alt="Kayali giant bag">
+    <img src="IMG_0296.jpeg" alt="Zoom event coordination">
+    <img src="IMG_8356.jpeg" alt="Sunnamusk London launch">
+    <img src="IMG_8354.jpeg" alt="Kayali team">
+    <img src="IMG_8359.jpeg" alt="Laneige Covent Garden popup">
+    <img src="IMG_8376.jpeg" alt="Laneige team">
+    <img src="IMG_8360.jpeg" alt="Laneige team at stand">
+    <img src="IMG_8355.jpeg" alt="Rare Beauty x Sephora launch">
+    <img src="IMG_8395.jpeg" alt="Rare Beauty x Sephora">
+    <img src="IMG_8394.jpeg" alt="Brand activation">
+    <img src="Image_20-05-2026_at_21_21.jpeg" alt="Women and the World Film Festival">
+    <img src="IMG_8374_2.jpeg" alt="BYOMA mascot">
+  </div>
+
+  <div style="margin-top:24px;background:var(--card);border:1px solid var(--border);border-left:3px solid var(--red);padding:20px 24px;max-width:700px">
+    <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:8px">Also · Event Execution</div>
+    <p style="font-size:14px;color:var(--white);font-weight:500;margin-bottom:4px">International Women and the World Film Festival</p>
+    <p style="font-size:13px;color:var(--muted);line-height:1.7">Contributed to the on-the-ground execution of this international event — supporting logistics, guest coordination, and front-of-house operations. Another example of showing up, getting stuck in, and delivering.</p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px">
+    <div style="background:var(--card);border:1px solid var(--border);padding:20px;text-align:center">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--red)">300+</div>
+      <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)">Customer interactions/event</div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);padding:20px;text-align:center">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--red)">50+</div>
+      <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)">Qualified leads/campaign</div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);padding:20px;text-align:center">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--red)">+15%</div>
+      <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)">Follow-up engagement uplift</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFERENCES -->
+<section class="conf-section fade-up" id="conferences" style="position:relative;overflow:hidden">
+<canvas class="section-bubble-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0"></canvas>
+  <div class="section-label">Experience · Sep 2024 – Present</div>
+  <h2 class="section-title">Conferences &<br>Events</h2>
+  <div style="margin-bottom:8px;font-size:14px;color:var(--muted);max-width:600px;line-height:1.7">
+    As an <strong style="color:var(--white)">Event Operations Assistant at Love Creative Marketing</strong>, I have coordinated end-to-end logistics for high-profile events: managing materials, timelines, budgets, vendor liaison, PO tracking, and post-event reporting. I lead on-site teams of up to 5 across 300+ attendee events, and every single deliverable is tracked and documented.
+  </div>
+
+  <div class="conf-list">
+    <div class="conf-item">
+      <h4>The Economist Impact</h4>
+      <p>Business Innovation Summit · Antitrust Summit · Sustainability Week · Net-Zero Shipping Summit</p>
+    </div>
+    <div class="conf-item">
+      <h4>ADCon 2025</h4>
+      <p>Europe's leading advertising conference. Front-of-house reception & attendee coordination.</p>
+    </div>
+    <div class="conf-item">
+      <h4>Optimove Connect</h4>
+      <p>CRM & marketing intelligence summit. Badge management, Excel registration tracking, VIP handling.</p>
+    </div>
+    <div class="conf-item">
+      <h4>HR Analytics Summit & Other</h4>
+      <p>HR Analytics Summit, Learning Technologies Expo, Medical conferences. Multi-event delivery.</p>
+    </div>
+  </div>
+
+  <div class="conf-grid">
+    <div class="conf-photo">
+      <img src="IMG_8368.jpeg" alt="Economist Impact Antitrust Summit">
+      <div class="conf-photo-label">Economist Impact · Antitrust Summit</div>
+    </div>
+    <div class="conf-photo">
+      <img src="IMG_8381.jpeg" alt="Economist Impact Business Innovation Summit">
+      <div class="conf-photo-label">Economist Impact · Business Innovation Summit</div>
+    </div>
+    <div class="conf-photo">
+      <img src="IMG_8382.jpeg" alt="Economist Impact reception desk">
+      <div class="conf-photo-label">Economist Impact · Business Innovation Summit</div>
+    </div>
+    <div class="conf-photo">
+      <img src="IMG_8385.jpeg" alt="ADCon">
+      <div class="conf-photo-label">ADCon 2025</div>
+    </div>
+    <div class="conf-photo">
+      <img src="IMG_8383.jpeg" alt="HR Analytics Summit">
+      <div class="conf-photo-label">HR Analytics Summit</div>
+    </div>
+    <div class="conf-photo">
+      <img src="IMG_8361.jpeg" alt="Optimove Connect">
+      <div class="conf-photo-label">Optimove Connect</div>
+    </div>
+  </div>
+
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+    <img src="IMG_8350.jpeg" alt="Perchpeek exhibitor stand" style="flex:1;min-width:180px;max-width:250px;aspect-ratio:3/4;object-fit:cover">
+    <img src="IMG_8364.jpeg" alt="Excel registration tracking" style="flex:1;min-width:180px;max-width:250px;aspect-ratio:3/4;object-fit:cover">
+    <img src="IMG_8351.jpeg" alt="Conference" style="flex:1;min-width:180px;max-width:250px;aspect-ratio:3/4;object-fit:cover">
+    <img src="IMG_8365.jpeg" alt="Economist Impact Sustainability Week" style="flex:1;min-width:180px;max-width:250px;aspect-ratio:3/4;object-fit:cover">
+    <img src="IMG_8367.jpeg" alt="Conference" style="flex:1;min-width:180px;max-width:250px;aspect-ratio:3/4;object-fit:cover">
+  </div>
+
+  <div style="margin-top:48px">
+    <div class="section-label" style="margin-bottom:20px">What I brought to every event</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+      <div style="background:var(--card);border:1px solid var(--border);padding:20px">
+        <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px">Operations & Reporting</div>
+        <p style="font-size:13px;color:var(--muted);line-height:1.6">Budget tracking, PO management, <strong style="color:var(--white)">Excel trackers and forecasts</strong>, timeline coordination, materials management, <strong style="color:var(--white)">post-event reporting</strong> and reconciliation</p>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);padding:20px">
+        <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px">Team Leadership</div>
+        <p style="font-size:13px;color:var(--muted);line-height:1.6">Led <strong style="color:var(--white)">teams of up to 5 staff</strong>, delegating roles, managing performance under pressure, ensuring <strong style="color:var(--white)">seamless delivery</strong></p>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);padding:20px">
+        <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px">Client-Facing</div>
+        <p style="font-size:13px;color:var(--muted);line-height:1.6">VIP handling, speaker support, <strong style="color:var(--white)">300+ attendees per event</strong> — including <strong style="color:var(--white)">C-suite executives</strong>, senior partners and top-level decision makers. Composure and warmth under any circumstances.</p>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);padding:20px">
+        <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px">Cross-Cultural</div>
+        <p style="font-size:13px;color:var(--muted);line-height:1.6">Regularly working with <strong style="color:var(--white)">international delegates and agencies</strong> from France, the US, Italy, Dubai, Asia and beyond — comfortable navigating <strong style="color:var(--white)">different communication styles</strong> and expectations at a senior level.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IBM -->
+<div class="ibm-section fade-up">
+  <div class="ibm-inner">
+    <div class="section-label" style="margin-bottom:16px">Bonus · 2024</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:0">
+      <h3>IBM Student Consultancy Project</h3>
+      <img src="Image 07-05-2026 at 15.48.jpeg" alt="IBM" style="height:36px;width:auto;opacity:0.7;filter:grayscale(100%) brightness(2);flex-shrink:0">
+    </div>
+    <p style="margin-top:12px">Analysed market trends, consumer behaviour, and competitor strategy for IBM's SkillsBuild platform. Built and presented a data-driven AI-powered marketing pitch to IBM mentors — earned recognition for strategic thinking and commercial insight.</p>
+    <div class="badges-row" style="margin-top:16px">
+      <span class="badge">Market Analysis</span>
+      <span class="badge">Data-Driven Pitching</span>
+      <span class="badge">AI Strategy</span>
+      <span class="badge">Commercial Insight</span>
+    </div>
+    <img src="Image 07-05-2026 at 15.48.jpeg" alt="Student Consultancy Project Certificate" style="margin-top:20px;width:280px;border:1px solid var(--border);opacity:0.85">
+  </div>
+</div>
+
+<!-- SKILLS & CERTS -->
+<section class="skills-section fade-up" id="skills" style="position:relative;overflow:hidden">
+<canvas class="section-bubble-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0"></canvas>
+  <div class="section-label">Skills & Qualifications</div>
+  <h2 class="section-title">What I bring<br>to the table.</h2>
+
+  <div class="skills-grid">
+    <div>
+      <div class="skill-category">
+        <h4>Platforms & Tools</h4>
+        <div class="skill-tags">
+          <span class="skill-tag primary">TikTok</span>
+          <span class="skill-tag primary">Instagram</span>
+          <span class="skill-tag primary">CapCut</span>
+          <span class="skill-tag primary">Advanced Excel & Pivot Tables</span>
+          <span class="skill-tag">Canva</span>
+          <span class="skill-tag">PowerPoint</span>
+          <span class="skill-tag">Google Workspace</span>
+          <span class="skill-tag">AI Tools</span>
+          <span class="skill-tag">Data Tracking & Reporting</span>
+        </div>
+      </div>
+      <div class="skill-category" style="margin-top:24px">
+        <h4>Content & Trade</h4>
+        <div class="skill-tags">
+          <span class="skill-tag primary">Content Strategy</span>
+          <span class="skill-tag primary">Campaign Tracking</span>
+          <span class="skill-tag primary">Data Analysis</span>
+          <span class="skill-tag">Sales Pitches</span>
+          <span class="skill-tag">Consumer Insights</span>
+          <span class="skill-tag">SEO</span>
+          <span class="skill-tag">Performance Reporting</span>
+          <span class="skill-tag">Competitor Analysis</span>
+          <span class="skill-tag">Brand Partnerships</span>
+          <span class="skill-tag primary">Survey Management</span>
+          <span class="skill-tag">ROI Thinking</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="skill-category">
+        <h4>Soft Skills</h4>
+        <div class="skill-tags">
+          <span class="skill-tag primary">Fast Learner</span>
+          <span class="skill-tag primary">Client-Facing</span>
+          <span class="skill-tag primary">Attention to Detail</span>
+          <span class="skill-tag">Cross-functional Collaboration</span>
+          <span class="skill-tag">Project Planning</span>
+          <span class="skill-tag">Event Logistics</span>
+          <span class="skill-tag">Team Leadership</span>
+          <span class="skill-tag">Data Hygiene</span>
+          <span class="skill-tag">Stakeholder Management</span>
+          <span class="skill-tag">Adaptability</span>
+        </div>
+      </div>
+      <div class="skill-category" style="margin-top:24px">
+        <h4>Languages</h4>
+        <div class="langs-row" style="margin-top:12px">
+          <div class="lang-item native"><div class="lang-name">Ukrainian</div><div class="lang-level">Native</div></div>
+          <div class="lang-item native"><div class="lang-name">Russian</div><div class="lang-level">Native</div></div>
+          <div class="lang-item"><div class="lang-name">English</div><div class="lang-level">Fluent</div></div>
+          <div class="lang-item"><div class="lang-name">German</div><div class="lang-level">Beginner</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top:64px;margin-bottom:24px">Certifications</div>
+  <div class="certs-grid">
+    <div class="cert-card">
+      <div class="cert-issuer">LVMH</div>
+      <div class="cert-name">Inside LVMH Certificate</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:2px">Creation & Branding · Operations & Supply Chain</div>
+      <div class="cert-date">December 2025</div>
+      <img src="Image 06-05-2026 at 23.28.jpeg" alt="LVMH Certificate" class="cert-img">
+    </div>
+    <div class="cert-card">
+      <div class="cert-issuer">Coursera · UC Davis</div>
+      <div class="cert-name">The Strategy of Content Marketing</div>
+      <div class="cert-date">June 2024</div>
+      <img src="Image 06-05-2026 at 23.29.jpeg" alt="Coursera Certificate" class="cert-img">
+    </div>
+
+  </div>
+</section>
+
+<!-- INTERESTS / PERSONALITY -->
+<section class="interests-section fade-up" id="interests">
+  <div class="section-label">Beyond the job</div>
+  <h2 class="section-title">The person<br>behind the CV.</h2>
+
+  <div class="interests-photos">
+    <div class="interest-photo">
+      <img src="IMG_5383.jpeg" alt="Paris, Louvre">
+      
+    </div>
+    <div class="interest-photo">
+      <img src="IMG_8408.jpeg" alt="Hollywood">
+      
+    </div>
+    <div class="interest-photo">
+      <img src="IMG_8412.jpeg" alt="Greece">
+      
+    </div>
+    <div class="interest-photo">
+      <img src="IMG_8410.jpeg" alt="Hollywood sign">
+      
+    </div>
+  </div>
+
+  <!-- Fun facts - yes I've done it all -->
+  <div class="section-label" style="margin-bottom:24px">Life outside the portfolio.</div>
+  <div class="fun-grid">
+    <div class="fun-card">
+      <img src="IMG_8414.jpeg" alt="Bungee jumping">
+      <div class="fun-card-body">
+        <div class="fun-card-title">Yes, I bungee jumped.</div>
+        <div class="fun-card-desc">If you need someone to jump into something new without hesitation — I've literally done it from a crane.</div>
+      </div>
+    </div>
+    <div class="fun-card">
+      <img src="IMG_8409.jpeg" alt="Padel rackets">
+      <div class="fun-card-body">
+        <div class="fun-card-title">Padel & Pilates</div>
+        <div class="fun-card-desc">Competitive on the court. Grounded in the studio. Balance is everything.</div>
+      </div>
+    </div>
+    <div class="fun-card">
+      <img src="IMG_8413.jpeg" alt="With my dog">
+      <div class="fun-card-body">
+        <div class="fun-card-title">Dog Person</div>
+        <div class="fun-card-desc">Unconditional love, zero corporate politics. Dogs just get it.</div>
+      </div>
+    </div>
+    <div class="fun-card">
+      <img src="IMG_8178.jpeg" alt="Reading in the park">
+      <div class="fun-card-body">
+        <div class="fun-card-title">Always Reading</div>
+        <div class="fun-card-desc">Parks, coffee shops, long flights. There's always a book on the go.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top:48px;margin-bottom:16px">Every job I've ever had</div>
+  <div class="jobs-timeline">
+    <div class="job-item">
+      <span class="job-emoji">☕</span>
+      <div class="job-title">Barista</div>
+      <div class="job-note">Costa Coffee · Made 100+ drinks a day with a smile</div>
+    </div>
+    <div class="job-item">
+      <span class="job-emoji">🍸</span>
+      <div class="job-title">Bartender</div>
+      <div class="job-note">Local pub · Learned that everyone talks to the bartender</div>
+    </div>
+    <div class="job-item">
+      <span class="job-emoji">👶</span>
+      <div class="job-title">Nanny</div>
+      <div class="job-note">Lovely 3-year-old · Patience level: expert</div>
+    </div>
+    <div class="job-item">
+      <span class="job-emoji">🛍️</span>
+      <div class="job-title">Sales Assistant</div>
+      <div class="job-note">Retail · Where I learned how to actually sell</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section fade-up" style="position:relative;overflow:hidden">
+<canvas id="cta-bubble-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0"></canvas>
+  <div style="position:relative;z-index:1"><div class="section-label" style="justify-content:center;margin-bottom:24px">Let's connect</div>
+  <h2>Let's <span>talk.</span></h2>
+  <p>I'm a final-year Business Management student graduating summer 2026, available now. I genuinely love beauty, hair, and the creator world — and I'd love to bring my energy, experience, and obsession with what's trending to the Tangle Teezer team. If you're reading this — I'd love to chat.</p>
+  <a href="mailto:koptieva1902@gmail.com" class="btn-primary" style="display:inline-block;margin-bottom:32px">koptieva1902@gmail.com</a>
+  <div class="cta-links">
+    <a href="https://linkedin.com/in/mariiakoptieva" class="cta-link" target="_blank">LinkedIn</a>
+    <a href="tel:+447887300648" class="cta-link">+44 788 730 0648</a>
+    <a href="#" class="cta-link">@mariiakoptieva</a>
+  </div>
+</div></section>
+
+<!-- FOOTER -->
+<footer>
+  <p style="font-size:11px;color:var(--muted)">© 2026 Mariia Koptieva · mariiakoptieva.github.io/tangleteezer</p>
+  <div class="footer-logo">MK<span>.</span></div>
+  <p style="font-size:11px;color:var(--muted)">London, UK · Open to work</p>
+</footer>
+
+<script>
+// Custom cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+  setTimeout(() => {
+    ring.style.left = e.clientX + 'px';
+    ring.style.top = e.clientY + 'px';
+  }, 80);
+});
+document.querySelectorAll('a,button,.fun-card,.conf-photo').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.width = '20px';
+    cursor.style.height = '20px';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.width = '12px';
+    cursor.style.height = '12px';
+  });
+});
+
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+<script>
+// Floating bubbles
+const canvas = document.getElementById('bubble-canvas');
+const ctx = canvas.getContext('2d');
+let bubbles = [];
+
+function resize() {
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+function randomBubble() {
+  return {
+    x: Math.random() * canvas.width,
+    y: canvas.height + Math.random() * 200,
+    r: 8 + Math.random() * 28,
+    speed: 0.4 + Math.random() * 0.8,
+    opacity: 0.06 + Math.random() * 0.12,
+    drift: (Math.random() - 0.5) * 0.4,
+    wobble: Math.random() * Math.PI * 2,
+    wobbleSpeed: 0.01 + Math.random() * 0.02,
+    rotation: Math.random() * Math.PI * 2
+  };
+}
+
+for (let i = 0; i < 18; i++) {
+  const b = randomBubble();
+  b.y = Math.random() * canvas.height;
+  bubbles.push(b);
+}
+
+function drawBrush(ctx, x, y, size, opacity, rotation) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.beginPath();
+  ctx.arc(0, 0, size * 0.5, 0, Math.PI * 2);
+  ctx.strokeStyle = `rgba(232,0,125,${opacity * 1.5})`;
+  ctx.lineWidth = 1.5;
+  ctx.stroke();
+  ctx.fillStyle = `rgba(232,0,125,${opacity * 0.3})`;
+  ctx.fill();
+  ctx.restore();
+}
+
+function drawBubbles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  bubbles.forEach(b => {
+    b.y -= b.speed;
+    b.wobble += b.wobbleSpeed;
+    b.x += Math.sin(b.wobble) * b.drift;
+    b.rotation = (b.rotation || 0) + 0.003;
+    if (b.y + b.r < 0) { Object.assign(b, randomBubble()); b.rotation = Math.random() * Math.PI * 2; }
+    drawBrush(ctx, b.x, b.y, b.r * 2.2, b.opacity * 1.2, b.rotation);
+  });
+  requestAnimationFrame(drawBubbles);
+}
+drawBubbles();
+
+// Letter-by-letter name animation
+document.querySelectorAll('.hero-name').forEach(el => {
+  el.childNodes.forEach(node => {
+    if (node.nodeType === 3) {
+      const text = node.textContent;
+      const span = document.createElement('span');
+      span.innerHTML = text.split('').map((ch, i) =>
+        ch === ' ' ? ' ' : `<span class="letter" style="animation-delay:${i * 0.04}s">${ch}</span>`
+      ).join('');
+      node.replaceWith(span);
+    }
+  });
+});
+
+// Bounce in skill tags
+const tagObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const tags = entry.target.querySelectorAll('.skill-tag');
+      tags.forEach((tag, i) => {
+        setTimeout(() => tag.classList.add('bounce-in'), i * 40);
+      });
+      tagObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.skill-tags').forEach(el => {
+  el.querySelectorAll('.skill-tag').forEach(t => { t.style.opacity = '0'; });
+  tagObserver.observe(el);
+});
+
+// CTA bubbles
+const ctaCanvas = document.getElementById('cta-bubble-canvas');
+if (ctaCanvas) {
+  const ctaCtx = ctaCanvas.getContext('2d');
+  let ctaBubbles = [];
+
+  function resizeCta() {
+    ctaCanvas.width = ctaCanvas.offsetWidth;
+    ctaCanvas.height = ctaCanvas.offsetHeight;
+  }
+  resizeCta();
+  window.addEventListener('resize', resizeCta);
+
+  function randomCtaBubble() {
+    return {
+      x: Math.random() * ctaCanvas.width,
+      y: ctaCanvas.height + Math.random() * 150,
+      r: 10 + Math.random() * 35,
+      speed: 0.3 + Math.random() * 0.7,
+      opacity: 0.07 + Math.random() * 0.13,
+      drift: (Math.random() - 0.5) * 0.5,
+      wobble: Math.random() * Math.PI * 2,
+      wobbleSpeed: 0.01 + Math.random() * 0.02
+    };
+  }
+
+  for (let i = 0; i < 14; i++) {
+    const b = randomCtaBubble();
+    b.y = Math.random() * ctaCanvas.height;
+    ctaBubbles.push(b);
+  }
+
+      function drawBrushCta(x, y, size, opacity, rotation) {
+    ctaCtx.save();
+    ctaCtx.translate(x, y);
+    ctaCtx.globalAlpha = opacity;
+    ctaCtx.beginPath();
+    ctaCtx.arc(0, 0, size * 0.5, 0, Math.PI * 2);
+    ctaCtx.strokeStyle = `rgba(232,0,125,${opacity * 1.5})`;
+    ctaCtx.lineWidth = 1.5;
+    ctaCtx.stroke();
+    ctaCtx.fillStyle = `rgba(232,0,125,${opacity * 0.25})`;
+    ctaCtx.fill();
+    ctaCtx.restore();
+  }
+
+  function drawCtaBubbles() {
+    ctaCtx.clearRect(0, 0, ctaCanvas.width, ctaCanvas.height);
+    ctaBubbles.forEach(b => {
+      b.y -= b.speed;
+      b.wobble += b.wobbleSpeed;
+      b.x += Math.sin(b.wobble) * b.drift;
+      b.rotation = (b.rotation || 0) + 0.003;
+      if (b.y + b.r < 0) { Object.assign(b, randomCtaBubble()); b.rotation = Math.random() * Math.PI * 2; }
+      drawBrushCta(b.x, b.y, b.r * 2.2, b.opacity * 1.1, b.rotation);
+    });
+    requestAnimationFrame(drawCtaBubbles);
+  }
+  drawCtaBubbles();
+}
+
+// Section bubbles
+document.querySelectorAll('.section-bubble-canvas').forEach(canvas => {
+  const ctx = canvas.getContext('2d');
+  let bubbles = [];
+
+  function resize() {
+    canvas.width = canvas.offsetWidth || canvas.parentElement.offsetWidth;
+    canvas.height = canvas.offsetHeight || canvas.parentElement.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function randomB() {
+    return {
+      x: Math.random() * (canvas.width || 800),
+      y: (canvas.height || 600) + Math.random() * 100,
+      r: 6 + Math.random() * 20,
+      speed: 0.25 + Math.random() * 0.55,
+      opacity: 0.04 + Math.random() * 0.08,
+      drift: (Math.random() - 0.5) * 0.35,
+      wobble: Math.random() * Math.PI * 2,
+      wobbleSpeed: 0.008 + Math.random() * 0.015
+    };
+  }
+
+  for (let i = 0; i < 10; i++) {
+    const b = randomB();
+    b.y = Math.random() * (canvas.height || 600);
+    bubbles.push(b);
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    bubbles.forEach(b => {
+      b.y -= b.speed;
+      b.wobble += b.wobbleSpeed;
+      b.x += Math.sin(b.wobble) * b.drift;
+      if (b.y + b.r < 0) Object.assign(b, randomB());
+      ctx.beginPath();
+      ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(232,0,125,${b.opacity * 1.5})`;
+      ctx.lineWidth = 1.2;
+      ctx.stroke();
+      ctx.fillStyle = `rgba(232,0,125,${b.opacity * 0.3})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+});
+</script>
+</body>
+</html>
